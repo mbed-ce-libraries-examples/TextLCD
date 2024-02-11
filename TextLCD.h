@@ -1,7 +1,7 @@
 /* mbed TextLCD Library, for LCDs based on HD44780 controllers
  * Copyright (c)	2007-2010, sford,	https://os.mbed.com/users/simon/code/TextLCD/
  *               	2013, v01: WH, 		Added LCD types, fixed LCD address issues, added Cursor and UDCs 
- *										https://os.mbed.com/users/wim/code/TextLCD/
+ *										              https://os.mbed.com/users/wim/code/TextLCD/
  *               	2013, v02: WH, 		Added I2C and SPI bus interfaces
  *               	2013, v03: WH, 		Added support for LCD40x4 which uses 2 controllers   
  *               	2013, v04: WH, 		Added support for Display On/Off, improved 4bit bootprocess  
@@ -9,7 +9,7 @@
  *               	2013, v06: WH, 		Added support for devices that use internal DC/DC converters 
  *               	2013, v07: WH, 		Added support for backlight and include portdefinitions for LCD2004 Module from DFROBOT
  *               	2014, v08: WH, 		Refactored in Base and Derived Classes to deal with mbed lib change regarding 'NC' defined DigitalOut pins
- *               	2014, v09: WH/EO, 	Added Class for Native SPI controllers such as ST7032 
+ *               	2014, v09: WH/EO, Added Class for Native SPI controllers such as ST7032 
  *               	2014, v10: WH, 		Added Class for Native I2C controllers such as ST7032i, Added support for MCP23008 I2C portexpander, Added support for Adafruit module  
  *               	2014, v11: WH, 		Added support for native I2C controllers such as PCF21XX, Improved the _initCtrl() method to deal with differences between all supported controllers  
  *               	2014, v12: WH, 		Added support for native I2C controller PCF2119 and native I2C/SPI controllers SSD1803, ST7036, added setContrast method (by JH1PJL) for supported devices (eg ST7032i) 
@@ -25,9 +25,10 @@
  *                              		Fixed and Added more fonttable support for PCF2119R_3V3, Added HD66712 controller.
  *               	2015, v21: WH, 		Added LCD32x2 defines and code, Fixed LCD12x4D enum, Added font enums, Added SPLC792A controller,
  *                              		Added UTF8_2_LCD decode for Cyrilic font (By Andriy Ribalko). Added setFont()
- *				 	2020, v22: JH1PJL, 	Added Stream.h because it was removed from mbed.h in MbedOS6+. 
- *										Added wrapper of wait function becasuse wait functions was removed in MbedOS6+
- *					2024, v23: JK,		Modified for MbedCE - history update
+ *				 	      2020, v22: JH1PJL,Added Stream.h because it was removed from mbed.h in MbedOS6+. 
+ *										              Added wrapper of wait function becasuse wait functions was removed in MbedOS6+
+ *                                  (https://os.mbed.com/users/kenjiArai/code/TextLCD/)  
+ *					      2024, v23: JK,		Modified for MbedCE - history update
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -58,10 +59,8 @@
 
 #if (MBED_MAJOR_VERSION < 6)
 #define WAIT_MS(x)              wait_ms(x)
-#elif (MBED_MAJOR_VERSION == 5) || (MBED_MAJOR_VERSION == 6)
-#define WAIT_MS(x)              thread_sleep_for(x)
 #else
-#warning "I cannot control wait_ms()!!"
+#define WAIT_MS(x)              thread_sleep_for(x)
 #endif
 
 /** A TextLCD interface for driving 4-bit HD44780-based LCDs
