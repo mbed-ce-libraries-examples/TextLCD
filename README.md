@@ -11,12 +11,35 @@ Library for interfacing many variants of Character Liquid Crystal Displays under
 
 ## Example code
 ```
+#include "mbed.h"
+#include "TextLCD.h"
 
+// fill your I2C pins in to I2C api object
+I2C i2cBus(I2C_SDA,I2C_SCL); 
+
+// I2C bus, PCF8574 GPIO expander Slaveaddress, LCD Type
+TextLCD_I2C lcd(&i2cBus, PCF8574A_SA7, TextLCD::LCD16x2);
+
+DigitalOut led(LED1);
+
+int main()
+{
+    printf("MbedCE_lib_example_TextLCD\r\n");
+
+    lcd.cls();
+    lcd.setCursor(TextLCD::CurOff_BlkOff);
+    lcd.setBacklight(TextLCD::LightOn);
+    thread_sleep_for(200);
+    lcd.printf("Welcome to\nMbedCE community\n"); 
+    while(1) {
+        led = !led;
+        thread_sleep_for(1000);                     
+    }
+}
 ```
 ## Description
 
 //TODO
 
 ### Status:
-//TODO
-This library was tested (02/2024) with Nucleo-F446RE, 16x2LCD with i2C expander, VS-Code under Win11, GCC 12.3 and MbedCE library
+This library was tested (02/2024) with Nucleo-F446RE, 16x2LCD with i2C expander (PCF8574), VS-Code under Win11, GCC 12.3 and MbedCE library
