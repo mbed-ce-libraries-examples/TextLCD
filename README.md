@@ -39,10 +39,10 @@ int main()
 }
 ```
 ## Description
-TextLCD is very advanced library what is able to operate with
-* supports many sizes form 6x1 to 40x4.
-* supports Parallel port (4bits = just 4 data bits), I2C-Bus or SPI communication.
-* supports few GPIIO Expanders over I2C/SPI
+TextLCD is very advanced library what supports
+* many sizes form 6x1 to 40x4.
+* Parallel port (4bits = just 4 data bits), I2C-Bus or SPI communication.
+* few GPIIO Expanders over I2C/SPI
 //TODO
 
 ### Status:
