@@ -7,7 +7,8 @@ Library for interfacing many variants of Character Liquid Crystal Displays under
 2. Add this as submodule to zour project via `git submodule add --depth 1 https://github.com/mbed-ce-libraries-examples/TextLCD TextLCD`
 3. The top level `CMakeList.txt` (in root of your project) should be modified according to [this wiki page](https://github.com/mbed-ce/mbed-os/wiki/MbedOS-configuration#libraries-in-your-application)
 4. Create your main.cpp file and copy & Paste example code below.
-5. Build the project
+5. Visit [TextLCD/TextLCD_confg.h](https://github.com/mbed-ce-libraries-examples/TextLCD/blob/117de5e049de8f8351fbb2466a282d648d5f918a/TextLCD_Config.h#L70) and change configuration according to your hardware. Some hints below.
+6. Build the project
 
 ## Example code
 ```
@@ -38,7 +39,10 @@ int main()
 }
 ```
 ## Description
-
+TextLCD is very advanced library what is able to operate with
+* supports many sizes form 6x1 to 40x4.
+* supports Parallel port (4bits = just 4 data bits), I2C-Bus or SPI communication.
+* supports few GPIIO Expanders over I2C/SPI
 //TODO
 
 ### Status:
