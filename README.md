@@ -7,11 +7,12 @@ Library for interfacing many variants of Character Liquid Crystal Displays under
 2. Add this as submodule to zour project via `git submodule add --depth 1 https://github.com/mbed-ce-libraries-examples/TextLCD TextLCD`
 3. The top level `CMakeList.txt` (in root of your project) should be modified according to [this wiki page](https://github.com/mbed-ce/mbed-os/wiki/MbedOS-configuration#libraries-in-your-application)
 4. Create your main.cpp file and copy & Paste example code below.
-5. Visit [TextLCD/TextLCD_confg.h](https://github.com/mbed-ce-libraries-examples/TextLCD/blob/117de5e049de8f8351fbb2466a282d648d5f918a/TextLCD_Config.h#L70) and change configuration according to your hardware. Some hints below.
+5. Visit [TextLCD/TextLCD_confg.h](https://github.com/mbed-ce-libraries-examples/TextLCD/blob/main/TextLCD_Config.h) and change configuration according to your hardware. Some hints below.
 6. Build the project
 
 ## Example code
 ```
+// example for LCD 16x2 with i2c expander (aliexpress)
 #include "mbed.h"
 #include "TextLCD.h"
 
