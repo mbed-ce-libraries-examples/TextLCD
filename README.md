@@ -41,10 +41,19 @@ int main()
 ```
 ## Description
 TextLCD is very advanced library what supports
-* many sizes form 6x1 to 40x4.
+* many sizes from 6x1 to 40x4.
 * Parallel port (4bits = just 4 data bits), I2C-Bus or SPI communication.
 * few GPIIO Expanders over I2C/SPI
-//TODO
+* also several design options. For Example DFROBOT and ADAFRUIT make their own designs of PCBs, and then the expander mapping are different and so on.
+
+All these settings are necessary to configure in TextLCD_confg.h file before you start. With wrong settings you will no see correct behavior of your display.
+
+## Troubleshooting
+it is very easy to make a mistake so here are some tips
+* when you see the first line of your LCD is full of squares then your display does not communicate with your MCU. Check conection and settings of TextLCD_confg.h
+* when your LCD makes non logic behavior like nonsense jumping of cursor the backlight is off instead of on. Check settings of [TextLCD_confg.h](https://github.com/mbed-ce-libraries-examples/TextLCD/blob/0138191528adcedd54738c94cecc8ba49447f74d/TextLCD_Config.h#L71-L80), probably wrong expander is selected
+  
+Feel free to ask [MbedCE-LE - discussions](https://github.com/orgs/mbed-ce-libraries-examples/discussions)
 
 ### Status:
 This library was tested (02/2024) with Nucleo-F446RE, 16x2LCD with i2C expander (PCF8574), VS-Code under Win11, GCC 12.3 and MbedCE library
